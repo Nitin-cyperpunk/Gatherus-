@@ -13,7 +13,7 @@ interface CardHomeProps {
 
 function CardHome({ firstname, event }: CardHomeProps) {
   return (
-    <div className="w-[480px] h-[520px] max-w-sm md:max-w-md lg:max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-3xl">
+    <div className="w-[480px] h-[450px] max-w-sm md:max-w-md lg:max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-3xl">
       {/* Image */}
       <div className="h-60 overflow-hidden">
         <img
@@ -27,14 +27,14 @@ function CardHome({ firstname, event }: CardHomeProps) {
         <h2 className="text-xl font-bold text-black">
           {firstname}
         </h2>
-        <p className="text-gray-600 dark:text-gray-300">{event?.description}</p>
+        <p className="text-gray-900 dark:text-gray-900 text-lg">{event?.description}</p>
 
         <div className="flex flex-wrap justify-between text-gray-500 dark:text-gray-400 mt-2">
-          <span className="font-medium">{event?.date}</span>
-          <span className="font-medium">{event?.location}</span>
+          <span className="font-medium text-sm text-black">📅{event?.date}</span>
+          <span className="font-medium text-sm text-black">📍{event?.location}</span>
         </div>
 
-        <p className="mt-3 text-amber-400 font-semibold text-lg">
+        <p className="mt-3 text-royalblue-200 font-semibold text-lg">
           {event?.price ? `$${event.price}` : "Free"}
         </p>
 
