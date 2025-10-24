@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 max-w-180 mx-auto rounded-xl px-3 py-3 flex justify-between items-center transition-colors duration-300 shadow-md ${
+      className={`sticky top-0 z-50 mt-4 max-w-180 mx-auto rounded-xl px-3 py-3 flex justify-between items-center transition-colors duration-300 shadow-md ${
         darkMode
           ? "bg-[#140E1F]/70 text-white backdrop-blur-md"
           : "bg-gray-400/60 text-white backdrop-blur-md"
