@@ -16,7 +16,7 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Events", path: "/events" },
+    { name: "Events", path: "./Events/page" },
     { name: "Testimonial", path: "/testimonial" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -30,13 +30,11 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
           : "bg-gray-400/60 text-white backdrop-blur-md"
       }`}
     >
-      {/* Logo */}
       <div className="flex items-center space-x-1">
         <span className="text-2xl font-bold bg-amber-900 rounded-md">⌘</span>
         <h1 className="text-xl font-bold">Gatherus</h1>
       </div>
 
-      {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-4 font-semibold text-lg ml-3">
         {navLinks.map((link, idx) => (
           <li key={idx}>
@@ -52,10 +50,8 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
         ))}
       </ul>
 
-      {/* Right Side */}
       <div className="flex items-center ml-4">
 
-        {/* Dark Mode Toggle */}
         <button
           onClick={() => setDarkMode(!darkMode)}
           className={`w-10 h-5 flex items-center rounded-full p-1 transition-colors duration-300 ${
@@ -65,7 +61,6 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
           <div className="w-4 h-4 bg-white rounded-full shadow-md"></div>
         </button>
 
-        {/* ✅ Login Button (Visible only when NOT logged in) */}
         {!isSignedIn && (
           <button
             onClick={openLogin}
@@ -75,7 +70,6 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
           </button>
         )}
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden focus:outline-none ml-3"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -100,7 +94,6 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <ul
           className={`absolute top-20 left-0 w-full flex flex-col items-center space-y-4 py-6 font-semibold text-lg shadow-lg md:hidden transition-all duration-300 ${
@@ -123,7 +116,6 @@ function Navbar({ openLogin, isSignedIn }: NavbarProps) {
             </li>
           ))}
 
-          {/* ✅ Mobile Login Button */}
           {!isSignedIn && (
             <button
               onClick={() => {

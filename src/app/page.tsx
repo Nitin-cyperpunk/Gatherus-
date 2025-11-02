@@ -4,6 +4,7 @@ import Navbar from "@/Component/Navbar";
 import CardHome from "@/Component/Cards/CardHome";
 import SignIn from "@/Component/Login/SignupModal";
 import Modal from "@/Component/Modal";
+import EventForm from "@/Component/EventForm";
 
 const images = [
   "https://picsum.photos/1200/800?random=1",
@@ -16,13 +17,10 @@ const images = [
 function Page() {
   const [currentImage, setCurrentImage] = useState(images[0]);
 
-  // ✅ Authentication
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  // ✅ Modal open state
   const [open, setOpen] = useState(false);
 
-  // ✅ Image slider auto-change
   useEffect(() => {
     const interval = setInterval(() => {
       let randomImage;
@@ -42,7 +40,6 @@ function Page() {
   isSignedIn={isSignedIn} 
 />
 
-      {/* ✅ Hero Section */}
       <div className="w-full h-[30rem] relative overflow-hidden">
         <img
           src={currentImage}
@@ -56,17 +53,15 @@ function Page() {
         </div>
       </div>
 
-      {/* ✅ Login Modal */}
       <Modal isOpen={open} onClose={() => setOpen(false)}>
         <SignIn
           onClose={() => {
             setOpen(false);
-            setIsSignedIn(true); // ✅ update UI after login
+            setIsSignedIn(true); 
           }}
         />
       </Modal>
 
-      {/* ✅ Cards Section */}
       <div className="text-4xl p-10">
         <h1 className="text-white mb-6">Card Content</h1>
 
@@ -108,6 +103,7 @@ function Page() {
           />
         </div>
       </div>
+      <EventForm />
     </>
   );
 }
