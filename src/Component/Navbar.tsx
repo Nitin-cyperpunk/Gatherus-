@@ -2,7 +2,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-function Navbar() {
+interface NavbarProps {
+  openLogin: () => void;
+  isSignedIn: boolean;
+}
+function Navbar({ openLogin, isSignedIn }: NavbarProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -12,7 +16,7 @@ function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Events", path: "/events" },
+    { name: "Events", path: "./Events/page" },
     { name: "Testimonial", path: "/testimonial" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -37,9 +41,7 @@ function Navbar() {
             <Link
               href={link.path}
               className={`transition-colors duration-200 ${
-                link.name === "Home"
-                  ? "text-lime-400"
-                  : "hover:text-lime-300"
+                link.name === "Home" ? "text-lime-400" : "hover:text-lime-300"
               }`}
             >
               {link.name}
@@ -49,6 +51,7 @@ function Navbar() {
       </ul>
 
       <div className="flex items-center ml-4">
+
         <button
           onClick={() => setDarkMode(!darkMode)}
           className={`w-10 h-5 flex items-center rounded-full p-1 transition-colors duration-300 ${
@@ -57,6 +60,15 @@ function Navbar() {
         >
           <div className="w-4 h-4 bg-white rounded-full shadow-md"></div>
         </button>
+
+        {!isSignedIn && (
+          <button
+            onClick={openLogin}
+            className="ml-4 px-4 py-2 bg-lime-500 text-black rounded-lg shadow hover:bg-lime-400 transition"
+          >
+            Login
+          </button>
+        )}
 
         <button
           className="md:hidden focus:outline-none ml-3"
@@ -95,9 +107,7 @@ function Navbar() {
               <Link
                 href={link.path}
                 className={`transition-colors duration-200 ${
-                  link.name === "Home"
-                    ? "text-lime-400"
-                    : "hover:text-lime-300"
+                  link.name === "Home" ? "text-lime-400" : "hover:text-lime-300"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -105,6 +115,18 @@ function Navbar() {
               </Link>
             </li>
           ))}
+
+          {!isSignedIn && (
+            <button
+              onClick={() => {
+                openLogin();
+                setIsMobileMenuOpen(false);
+              }}
+              className="px-6 py-2 bg-lime-500 text-black rounded-lg shadow hover:bg-lime-400 transition"
+            >
+              Login
+            </button>
+          )}
         </ul>
       )}
     </nav>

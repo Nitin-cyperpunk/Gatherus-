@@ -13,7 +13,7 @@ interface CardHomeProps {
 
 function CardHome({ firstname, event }: CardHomeProps) {
   return (
-    <div className="w-[480px] h-[450px] max-w-sm md:max-w-md lg:max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-3xl">
+    <div className="w-[480px] h-[400px] max-w-sm md:max-w-md lg:max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden  hover:shadow-3xl">
       {/* Image */}
       <div className="h-60 overflow-hidden">
         <img
